@@ -207,6 +207,19 @@ function AudioSettingsModal({
                 </Switch>
                 <Switch
                     hideBorder
+                    onChange={v => (Settings.audio = { ...Settings.audio, legacyWorkaround: v })}
+                    value={Settings.audio?.legacyWorkaround ?? false}
+                    note={
+                        <>
+                            Use a non-redirection based approach for the above workaround. This should not be enabled
+                            unless your pipewire version is ancient.
+                        </>
+                    }
+                >
+                    Microphone Workaround
+                </Switch>
+                <Switch
+                    hideBorder
                     onChange={v => (Settings.audio = { ...Settings.audio, onlySpeakers: v })}
                     value={Settings.audio?.onlySpeakers ?? true}
                     note={
